@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="Weasel.Display"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Weasel"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="150" Width="150" Height="40">
+    <Grid Background="#FF323232">
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="150" FontSize="24" Foreground="White" TextAlignment="Center" FontWeight="Bold" Text="2 Weasels"/>
+    </Grid>
+</UserControl>
