@@ -10,12 +10,14 @@ using CoreAPI = Hearthstone_Deck_Tracker.API.Core;
 
 namespace Weasel
 {
-	internal class WeaselTracker
+
+    internal class WeaselTracker
 	{
-        private Display _display;
+        public const string tunnelerId = "CFM_095";
+        private WeaselDisplay _display;
         private int weasels = 0;
 
-		public WeaselTracker(Display display)
+		public WeaselTracker(WeaselDisplay display)
 		{
             _display = display;
 			// Hide in menu, if necessary
@@ -28,7 +30,7 @@ namespace Weasel
 		{
             _display.UpdateNumber(0);
             _display.Hide();
-		}
+        }
 
         // Reset on when a new game starts
         internal void GameEnd()
@@ -48,7 +50,7 @@ namespace Weasel
 
         internal void OnCreateInPlay(Card card)
         {
-            if (card.Id == "CFM_095")
+            if (card.Id == tunnelerId)
             {
                 weasels += 1;
                 _display.UpdateNumber(weasels);

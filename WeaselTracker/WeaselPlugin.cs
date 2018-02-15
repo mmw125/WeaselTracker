@@ -7,7 +7,7 @@ namespace Weasel
 {
 	public class WeaselPlugin : IPlugin
 	{
-		private Display _display;
+		private WeaselDisplay _display;
 
 		public string Author
 		{
@@ -40,7 +40,7 @@ namespace Weasel
 
 		public void OnLoad()
 		{
-			_display = new Display();
+			_display = new WeaselDisplay();
 			Core.OverlayCanvas.Children.Add(_display);
 			WeaselTracker tracker = new WeaselTracker(_display);
 
