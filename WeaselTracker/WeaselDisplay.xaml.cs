@@ -5,9 +5,6 @@ using System.Windows.Controls;
 
 namespace Weasel
 {
-    /// <summary>
-    /// Interaction logic for FatigueDisplay.xaml
-    /// </summary>
     public partial class WeaselDisplay : UserControl
     {
         public WeaselDisplay()
@@ -38,6 +35,16 @@ namespace Weasel
         public void Hide()
         {
             this.Visibility = Visibility.Hidden;
+        }
+
+        public void UpdatePlayerWeasels(int number)
+        {
+
+        }
+
+        public void UpdateOpponnentWeasels(int number)
+        {
+
         }
     }
 }

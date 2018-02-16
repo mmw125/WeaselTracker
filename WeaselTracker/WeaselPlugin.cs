@@ -46,10 +46,11 @@ namespace Weasel
 
             GameEvents.OnGameStart.Add(tracker.GameStart);
             GameEvents.OnGameEnd.Add(tracker.GameEnd);
-            GameEvents.OnPlayerCreateInPlay.Add(tracker.OnCreateInPlay);
-            GameEvents.OnOpponentCreateInPlay.Add(tracker.OnCreateInPlay);
-            GameEvents.OnPlayerPlay.Add(tracker.OnCreateInPlay);
-            GameEvents.OnOpponentPlay.Add(tracker.OnCreateInPlay);
+            GameEvents.OnPlayerCreateInPlay.Add(tracker.OnPlayerCreateInPlay);
+            GameEvents.OnOpponentCreateInPlay.Add(tracker.OnOpponnentCreateInPlay);
+            GameEvents.OnPlayerPlay.Add(tracker.OnPlayerCreateInPlay);
+            GameEvents.OnOpponentPlay.Add(tracker.OnOpponnentPlay);
+            DeckManagerEvents.OnDeckSelected.Add(tracker.OnSelectDeck);
         }
 
 		public void OnUnload()
