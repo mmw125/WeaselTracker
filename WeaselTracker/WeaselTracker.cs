@@ -47,44 +47,16 @@ namespace Weasel
 			}
 		}
 
-        internal void OnPlayerDraw(Card card)
+        private void RemoveOpponentWeasel()
         {
-            if (card.Id == tunnelerId)
+            if (weaselsInOpponnentDeck != 0)
             {
-
+                weaselsInOpponnentDeck--;
+                _display.UpdateOpponnentWeasels(weaselsInOpponnentDeck);
             }
         }
 
-        internal void OnPlayerCreateInPlay(Card card)
-        {
-            if (card.Id == tunnelerId)
-            {
-                IncrementWeasels();
-                if (weaselsInOpponnentDeck != 0)
-                {
-                    weaselsInOpponnentDeck--;
-                    _display.UpdateOpponnentWeasels(weaselsInOpponnentDeck);
-                }
-            }
-        }
-
-        internal void OnOpponnentCreateInPlay(Card card)
-        {
-            if (card.Id == tunnelerId)
-            {
-                IncrementWeasels();
-            }
-        }
-
-        internal void OnOpponnentPlay(Card card)
-        {
-            if (card.Id == tunnelerId)
-            {
-                IncrementWeasels();
-            }
-        }
-
-        internal void DrawWeasel()
+        private void RemovePlayerWeasel()
         {
             if (weaselsInPlayerDeck != 0)
             {
@@ -93,11 +65,52 @@ namespace Weasel
             }
         }
 
-        internal void IncrementWeasels()
+        private void IncrementWeasels()
         {
-            weasels += 1;
+            weasels++;
             _display.UpdateNumber(weasels);
             _display.Show();
+        }
+
+        internal void OnPlayerDraw(Card card)
+        {
+            if (card.Id == tunnelerId)
+            {
+                RemovePlayerWeasel();
+            }
+        }
+
+        internal void OnPlayerPlay(Card card)
+        {
+            if (card.Id == tunnelerId)
+            {
+                IncrementWeasels();
+            }
+        }
+
+        internal void OnOpponentCreateInPlay(Card card)
+        {
+            if (card.Id == tunnelerId)
+            {
+                IncrementWeasels();
+            }
+        }
+
+        internal void OnOpponentPlay(Card card)
+        {
+            if (card.Id == tunnelerId)
+            {
+                IncrementWeasels();
+                RemoveOpponentWeasel();
+            }
+        }
+
+        internal void DrawWeasel()
+        {
+            if (weaselsInPlayerDeck != 0)
+            {
+                RemovePlayerWeasel();
+            }
         }
 
         internal void OnSelectDeck(Deck deck)
@@ -109,6 +122,22 @@ namespace Weasel
                 {
                     weaselsInPlayerDeck++;
                 }
+            }
+        }
+
+        internal void OnOppenentDiscard(Card card)
+        {
+            if (card.Id == tunnelerId)
+            {
+                RemoveOpponentWeasel();
+            }
+        }
+
+        internal void OnPlayerDiscard(Card card)
+        {
+            if (card.Id == tunnelerId)
+            {
+                RemovePlayerWeasel();
             }
         }
 	}
