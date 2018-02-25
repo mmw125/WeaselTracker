@@ -10,35 +10,35 @@ namespace Weasel
     /// </summary>
     public partial class Display : UserControl
     {
-        private bool isLocal = false;
-        public Display()
+        public Display(String title, int player_number=0, int opponent_number=0)
         {
             InitializeComponent();
             UpdatePosition();
-            Hide();
+            SetTitle(title);
+            UpdatePlayerNumber(player_number);
+            UpdateOpponentNumber(opponent_number);
         }
 
-        public void UpdateNumber(int number)
+        public void SetTitle(String title)
         {
-            String text = number + " Weasel";
-            if (number == 0)
-                text += "s";
-            this.textBlock.Text = text;
-            UpdatePosition();
+            this.title.Text = title;
+        }
+
+        public void UpdatePlayerNumber(int number)
+        {
+            this.player.Text = number + "";
+        }
+
+        public void UpdateOpponentNumber(int number)
+        {
+            this.opponent.Text = number + "";
         }
 
         private double ScreenRatio => (4.0 / 3.0) / (Core.OverlayCanvas.Width / Core.OverlayCanvas.Height);
         public void UpdatePosition()
         {
             Canvas.SetRight(this, Hearthstone_Deck_Tracker.Helper.GetScaledXPos(5.0 / 100, (int)Core.OverlayCanvas.Width, ScreenRatio));
-            if (isLocal)
-            {
-                Canvas.SetTop(this, Core.OverlayCanvas.Height * 65 / 100);
-            }
-            else
-            {
-                Canvas.SetBottom(this, Core.OverlayCanvas.Height * 75 / 100);
-            }
+            Canvas.SetBottom(this, Core.OverlayCanvas.Height * 80 / 100);
         }
 
         public void Show()

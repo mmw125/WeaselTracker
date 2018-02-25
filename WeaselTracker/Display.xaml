@@ -5,8 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Weasel"
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="150" Width="150" Height="40">
+             d:DesignHeight="100" d:DesignWidth="150" Width="200" Height="90">
     <Grid Background="#FF323232">
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="150" FontSize="24" Foreground="White" TextAlignment="Center" FontWeight="Bold" Text="2 Weasels"/>
+        <TextBlock x:Name="title" HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="24" Foreground="White" TextAlignment="Center" FontWeight="Bold" Text="Weasels"/>
+        <TextBlock x:Name="opponent_title" HorizontalAlignment="Left" Margin="5,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="130" FontSize="24" Foreground="White" TextAlignment="Left" FontWeight="Bold" Text="Opponent:"/>
+        <TextBlock x:Name="opponent" HorizontalAlignment="Right" Margin="0,0,5,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="50" FontSize="24" Foreground="White" TextAlignment="Right" FontWeight="Bold" Text="2"/>
+        <TextBlock x:Name="player_title" HorizontalAlignment="Left" Margin="5,0,0,0" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="80" FontSize="24" Foreground="White" TextAlignment="Left" FontWeight="Bold" Text="Player:"/>
+        <TextBlock x:Name="player" HorizontalAlignment="Right" Margin="0,0,5,0" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="50" FontSize="24" Foreground="White" TextAlignment="Right" FontWeight="Bold" Text="10"/>
     </Grid>
 </UserControl>

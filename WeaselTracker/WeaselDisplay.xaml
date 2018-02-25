@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Weasel"
              mc:Ignorable="d" 
              d:DesignHeight="150" d:DesignWidth="150" Width="100" Height="100">
-    <Grid Name="IconBoardAttackOpponent" Canvas.Top="0" Canvas.Left="0" Width="100" Height="100">
+    <Grid Name="IconBoardAttackOpponent" Canvas.Top="0" Canvas.Left="0" Width="100" Height="100" MouseEnter="Weasel_MouseEnter" MouseLeave="Weasel_MouseLeave" MouseMove="Weasel_MouseMove">
         <Image Source="Images/tunneler.png"/>
         <TextBlock x:Name="textBlock" FontSize="24" Width="40" Height="30" Text="17" TextAlignment="Center" Margin="-2,12,0,0"/>
     </Grid>

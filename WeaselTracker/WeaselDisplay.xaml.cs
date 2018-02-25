@@ -7,10 +7,13 @@ namespace Weasel
 {
     public partial class WeaselDisplay : UserControl
     {
+        internal Display _display = null;
+
         public WeaselDisplay()
         {
             InitializeComponent();
             UpdatePosition();
+            _display = new Display("Weasels");
             Hide();
         }
 
@@ -35,16 +38,32 @@ namespace Weasel
         public void Hide()
         {
             this.Visibility = Visibility.Hidden;
+            this._display.Hide();
         }
 
         public void UpdatePlayerWeasels(int number)
         {
-
+            this._display.UpdatePlayerNumber(number);
         }
 
         public void UpdateOpponnentWeasels(int number)
         {
+            this._display.UpdateOpponentNumber(number);
+        }
 
+        private void Weasel_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            this._display.Show();
+        }
+
+        private void Weasel_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            this._display.Hide();
+        }
+
+        private void Weasel_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            this._display.Show();
         }
     }
 }

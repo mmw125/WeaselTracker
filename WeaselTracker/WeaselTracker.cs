@@ -20,6 +20,11 @@ namespace Weasel
 				_display.Hide();
 		}
 
+        public Display GetDisplay()
+        {
+            return _display._display;
+        }
+
         internal void Init()
         {
             _display.UpdateNumber(0);
@@ -47,6 +52,7 @@ namespace Weasel
 			}
 		}
 
+        // Handles the count of weasels going down
         private void RemoveOpponentWeasel()
         {
             if (weaselsInOpponnentDeck != 0)
@@ -113,6 +119,24 @@ namespace Weasel
             }
         }
 
+        internal void OnPlayerCreateInDeck(Card card)
+        {
+            if (card.Id == tunnelerId)
+            {
+                weaselsInPlayerDeck++;
+                _display.UpdatePlayerWeasels(weaselsInPlayerDeck);
+            }
+        }
+
+        internal void OnOpponentCreateInDeck(Card card)
+        {
+            if (card.Id == tunnelerId)
+            {
+                weaselsInOpponnentDeck++;
+                _display.UpdateOpponnentWeasels(weaselsInOpponnentDeck);
+            }
+        }
+
         internal void OnSelectDeck(Deck deck)
         {
             weaselsInPlayerDeck = 0;
@@ -123,6 +147,7 @@ namespace Weasel
                     weaselsInPlayerDeck++;
                 }
             }
+            _display.UpdateNumber(weaselsInPlayerDeck);
         }
 
         internal void OnOppenentDiscard(Card card)
@@ -133,12 +158,6 @@ namespace Weasel
             }
         }
 
-        internal void OnPlayerDiscard(Card card)
-        {
-            if (card.Id == tunnelerId)
-            {
-                RemovePlayerWeasel();
-            }
-        }
+
 	}
 }
